@@ -18,6 +18,7 @@ namespace GuideTool
         public GuidingTool()
         {
             InitializeComponent();
+			MessageBox.Show("Test Git");
         }
 
         private void GuidingTool_Load(object sender, EventArgs e)
