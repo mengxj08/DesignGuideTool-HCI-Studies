@@ -1,9 +1,0 @@
-c:\users\workshop\documents\visual studio 2012\Projects\GuideTool\GuideTool\bin\Debug\GuideTool.exe.config
-C:\Users\workshop\Documents\Visual Studio 2012\Projects\GuideTool\GuideTool\bin\Debug\GuideTool.exe
-C:\Users\workshop\Documents\Visual Studio 2012\Projects\GuideTool\GuideTool\bin\Debug\GuideTool.pdb
-C:\Users\workshop\Documents\Visual Studio 2012\Projects\GuideTool\GuideTool\obj\Debug\GuideTool.csprojResolveAssemblyReference.cache
-C:\Users\workshop\Documents\Visual Studio 2012\Projects\GuideTool\GuideTool\obj\Debug\GuideTool.GuidingTool.resources
-C:\Users\workshop\Documents\Visual Studio 2012\Projects\GuideTool\GuideTool\obj\Debug\GuideTool.Properties.Resources.resources
-C:\Users\workshop\Documents\Visual Studio 2012\Projects\GuideTool\GuideTool\obj\Debug\GuideTool.csproj.GenerateResource.Cache
-C:\Users\workshop\Documents\Visual Studio 2012\Projects\GuideTool\GuideTool\obj\Debug\GuideTool.exe
-C:\Users\workshop\Documents\Visual Studio 2012\Projects\GuideTool\GuideTool\obj\Debug\GuideTool.pdb
