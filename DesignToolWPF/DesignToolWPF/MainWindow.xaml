@@ -1,0 +1,56 @@
+﻿<Window x:Class="DesignToolWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="MainWindow" Height="500" Width="800">
+    <Grid>
+        <Canvas HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="792">
+            <TextBox Height="50" TextWrapping="Wrap" Width="792"/>
+        </Canvas>
+        <Canvas HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="200" Margin="0,50,0,0">
+            <Button Content="Reasearch Question" Width="126" Height="35" Canvas.Left="29" Canvas.Top="29" Click="Button1_Click"/>
+            <Button Content="Determine Variables" Width="126" Height="35" Canvas.Left="29" Canvas.Top="104" Click="Button2_Click"/>
+            <Button Content="Arrange Conditions" Width="126" Height="35" Canvas.Left="29" Canvas.Top="184" Click="Button3_Click"/>
+            <Button Content="Decide block and trial" Width="126" Height="35" Canvas.Left="29" Canvas.Top="264" Click="Button4_Click"/>
+            <Button Content="Questionnaire" Width="126" Height="35" Canvas.Left="29" Canvas.Top="349" Click="Button5_Click"/>
+        </Canvas>
+        <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+            <TextBlock Height="417" TextWrapping="Wrap" Width="592">
+                <Bold>
+                Welcome to designing Experiment Guide~~
+                <LineBreak />
+                XXX is a great automated guide for no matter non-experienced or experienced HCI researchers to design the controlled experiment.
+                <LineBreak />
+                XXX can also automatically arrange the detailed procedures and simulate the whole process of performing experiments.
+                </Bold>
+            </TextBlock>
+        </Canvas>
+        <Canvas x:Name="canvas2" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+            <Label Content="Your Question:"/>
+            <Label Content="Experiment Name:" Canvas.Top="52"/>
+            <Label Content="Author:" Canvas.Top="104"/>
+            <Label Content="Description:" Canvas.Top="163"/>
+            <TextBox Height="26" Canvas.Left="107" TextWrapping="Wrap" Text="" Width="485"/>
+            <TextBox Height="24" Canvas.Left="107" TextWrapping="Wrap" Text="" Width="485" Canvas.Top="54"/>
+            <TextBox Height="24" Canvas.Left="107" TextWrapping="Wrap" Text="" Width="485" Canvas.Top="106"/>
+            <TextBox Height="24" Canvas.Left="107" TextWrapping="Wrap" Text="" Width="485" Canvas.Top="165"/>
+            <TextBox Height="23" TextWrapping="Wrap" Text="Your solution/product/service" Width="485" Canvas.Top="224"/>
+            <TextBox Height="24" TextWrapping="Wrap" Text="other solutions/products/services" Width="485" Canvas.Top="262"/>
+            <TextBox Height="24" TextWrapping="Wrap" Text="certain task" Width="485" Canvas.Top="300"/>
+            <TextBox Height="24" TextWrapping="Wrap" Text="certain context" Width="485" Canvas.Top="341"/>
+            <TextBox Height="24" TextWrapping="Wrap" Text="certain measures" Width="485" Canvas.Top="383"/>
+            <Label Content="is better than" Canvas.Top="224" Canvas.Left="490"/>
+            <Label Content="in" Canvas.Top="262" Canvas.Left="490"/>
+            <Label Content="under" Canvas.Top="300" Canvas.Left="490"/>
+            <Label Content="based on" Canvas.Top="341" Canvas.Left="490"/>
+        </Canvas>
+        <Canvas x:Name="canvas3" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+            
+        </Canvas>
+        <Canvas x:Name="canvas4" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+
+        </Canvas>
+        <Canvas x:Name="canvas5" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+
+        </Canvas>
+    </Grid>
+</Window>

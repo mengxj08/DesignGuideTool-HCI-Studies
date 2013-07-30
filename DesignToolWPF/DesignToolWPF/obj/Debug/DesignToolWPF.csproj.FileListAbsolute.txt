@@ -1,0 +1,13 @@
+c:\users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\bin\Debug\DesignToolWPF.exe.config
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\bin\Debug\DesignToolWPF.exe
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\bin\Debug\DesignToolWPF.pdb
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\obj\Debug\DesignToolWPF.csprojResolveAssemblyReference.cache
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\obj\Debug\MainWindow.baml
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\obj\Debug\MainWindow.g.cs
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\obj\Debug\App.g.cs
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\obj\Debug\DesignToolWPF_MarkupCompile.cache
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\obj\Debug\DesignToolWPF.g.resources
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\obj\Debug\DesignToolWPF.Properties.Resources.resources
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\obj\Debug\DesignToolWPF.csproj.GenerateResource.Cache
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\obj\Debug\DesignToolWPF.exe
+C:\Users\workshop\documents\visual studio 2012\Projects\DesignToolWPF\DesignToolWPF\obj\Debug\DesignToolWPF.pdb
