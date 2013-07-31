@@ -2,7 +2,7 @@
 <!-- Data structure of user study design -->
 <design_guide>
   <research_question>
-    <experiment_name></experiment_name>
+    <experiment_title></experiment_title>
     <experiment_description></experiment_description>
     <experiment_conductor></experiment_conductor>
     <hypothesis>
@@ -14,11 +14,17 @@
         </compare_solution>
       </compare_solutions>
       <tasks>
-        <task></task>
+        <task>
+          <id></id>
+          <name></name>
+        </task>
       </tasks>
       <context></context>
       <measures>
-        <measure></measure>
+        <measure>
+          <id></id>
+          <name></name>
+        </measure>
       </measures>
       <target_population></target_population>
     </hypothesis>
