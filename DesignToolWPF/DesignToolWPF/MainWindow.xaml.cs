@@ -12,20 +12,28 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Collections.ObjectModel;  
 
 namespace DesignToolWPF
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
+    /// 
+    public enum Types { Indepedent, Dependent };
+    public enum SubjectDesign { Bewtween, Within}
     public partial class MainWindow : Window
     {
         public MainWindow()
         {
             InitializeComponent();
+            ObservableCollection<Member> memberData = new ObservableCollection<Member>();
+            dataGrid.DataContext = memberData;
         }
+
         private void setInvisible()
         {
+            this.canvas0.Visibility = System.Windows.Visibility.Hidden;
             this.canvas1.Visibility = System.Windows.Visibility.Hidden;
             this.canvas2.Visibility = System.Windows.Visibility.Hidden;
             this.canvas3.Visibility = System.Windows.Visibility.Hidden;
@@ -55,5 +63,19 @@ namespace DesignToolWPF
         {
 
         }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
+        }
+       
     }
+    
+    public class Member
+    {
+        public string FactorsName{get; set;}
+        public Types FactorsType { get; set; }
+        public SubjectDesign FactorsDesign { get; set; }
+        public string Levels { get; set; }
+    } 
 }
