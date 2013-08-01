@@ -42,6 +42,7 @@
       <counter_balance></counter_balance>  <!-- None, Latin Square, and fully counter balance -->
     </independent_variable>
     <dependent_variable>
+      <name></name>
     </dependent_variable>
     <control_variable>
     </control_variable>
@@ -53,6 +54,7 @@
     <actual_number></actual_number>
     <fee_per_participant></fee_per_participant>  <!-- total payment = actual_number * fee_per_participant -->
     <trial></trial>
+    <time_per_trial></time_per_trial>
     <block></block>
     <participants>
       <participant>  <!-- personal information can be extended later -->
