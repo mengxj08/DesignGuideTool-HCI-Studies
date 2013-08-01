@@ -3,11 +3,11 @@
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:assembly="clr-namespace:System;assembly=mscorlib"
         xmlns:local="clr-namespace:DesignToolWPF" 
-        Title="MainWindow" Height="500" Width="800">
+        Title="MainWindow" Height="500" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
         <ObjectDataProvider x:Key="keyTypes" MethodName="GetValues" ObjectType="{x:Type assembly:Enum}">
             <ObjectDataProvider.MethodParameters>
-                <x:Type Type="local:Types"></x:Type>
+                <x:Type Type="local:vTypes"></x:Type>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
         <ObjectDataProvider x:Key="keyDesign" MethodName="GetValues" ObjectType="{x:Type assembly:Enum}">
@@ -18,7 +18,7 @@
     </Window.Resources>
     <Grid>
         <Canvas HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="792">
-            <TextBox Height="50" TextWrapping="Wrap" Width="792"/>
+            <TextBox x:Name="textbox1" Height="50" TextWrapping="Wrap" Width="792"/>
         </Canvas>
         <Canvas HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="200" Margin="0,50,0,0">
             <Button Content="Reasearch Question" Width="126" Height="35" Canvas.Left="29" Canvas.Top="29" Click="Button1_Click"/>
@@ -27,12 +27,12 @@
             <Button Content="Decide block and trial" Width="126" Height="35" Canvas.Left="29" Canvas.Top="264" Click="Button4_Click"/>
             <Button Content="Questionnaire" Width="126" Height="35" Canvas.Left="29" Canvas.Top="349" Click="Button5_Click"/>
         </Canvas>
-        <Canvas x:Name="canvas0" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+        <Canvas x:Name="canvas0" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Visible">
             <TextBlock Height="417" TextWrapping="Wrap" Width="592">
                 <Bold>
                 Welcome to designing Experiment Guide~~
                 <LineBreak />
-                XXX is a great automated guide for no matter non-experienced or experienced HCI researchers to design the controlled experiment.
+                XXX is a great automated guide for no matter non-experienced or experienced HCI researchers to <LineBreak />design the controlled experiment.
                 <LineBreak />
                 XXX can also automatically arrange the detailed procedures and simulate the whole process of performing experiments.
                 </Bold>
@@ -57,31 +57,168 @@
             <Label Content="under" Canvas.Top="300" Canvas.Left="490"/>
             <Label Content="based on" Canvas.Top="341" Canvas.Left="490"/>
         </Canvas>
-        <Canvas x:Name="canvas2" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Visible">
+        <Canvas x:Name="canvas2" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+            <TabControl Height="417" Width="592">
+                <TabItem Header="Independent Variables">
+                    <Grid Background="#FFE5E5E5">
+                        <Label Content="Factors Name" HorizontalAlignment="Left" Margin="10,0,0,0" VerticalAlignment="Top" Width="83"/>
+                        <Label Content="Type" HorizontalAlignment="Left" Margin="126,0,0,0" VerticalAlignment="Top" Width="54"/>
+                        <Label Content="Between-/Within- Design" HorizontalAlignment="Left" Margin="220,0,0,0" VerticalAlignment="Top" Width="146"/>
+                        <Label Content="Levels" HorizontalAlignment="Left" Margin="385,0,0,0" VerticalAlignment="Top" Width="54"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="7,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,30,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="7,149,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,149,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,205,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,265,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,261,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,289,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,317,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,345,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <ComboBox HorizontalAlignment="Left" Margin="98,31,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
+                            <ComboBoxItem Content="Indepedent" Tag="tag1"/>
+                        </ComboBox>
+                        <ComboBox HorizontalAlignment="Left" Margin="98,150,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
+                            <ComboBoxItem Content="Independent" Tag="tag1"/>
+                        </ComboBox>
+                        <ComboBox HorizontalAlignment="Left" Margin="98,266,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
+                            <ComboBoxItem Content="Independent" Tag="tag1" />
+                        </ComboBox>
+                        <ComboBox HorizontalAlignment="Left" Margin="227,32,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
+                            <ComboBoxItem Content="Within" Tag="tag1"/>
+                            <ComboBoxItem Content="Between" Tag="tga2" />
+                        </ComboBox>
+                        <ComboBox HorizontalAlignment="Left" Margin="227,149,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
+                            <ComboBoxItem Content="Within" Tag="tag1"/>
+                            <ComboBoxItem Content="Between" Tag="tag2" />
+                        </ComboBox>
+                        <ComboBox HorizontalAlignment="Left" Margin="227,266,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
+                            <ComboBoxItem Content="Within" Tag="tag1" />
+                            <ComboBoxItem Content="Between" Tag="tag2" />
+                        </ComboBox>
+
+                    </Grid>
+                </TabItem>
+                <TabItem Header="Dependent Variables">
+                    <Grid Background="#FFE5E5E5">
+                        <Label Content="Facotrs Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="102"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,88,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,127,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,168,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                    </Grid>
+
+                </TabItem>
+            </TabControl>
+
+            <!--
+            //This part is a grid data with combobox to show the independent and depedent variables
             <Grid Height="417" Width="592">
-                <DataGrid x:Name="dataGrid" ItemsSource="{Binding}">
+                <DataGrid x:Name="dataGrid" ItemsSource="{Binding}" AutoGenerateColumns="False">
                     <DataGrid.Columns>
-                        <DataGridTextColumn Header="FactorsName" Width="150" Binding="{Binding FactorsName}"/>
-                        <DataGridComboBoxColumn Width="100" Header="Type"   
-                                        SelectedItemBinding="{Binding FactorsType}"   
-                              ItemsSource="{Binding Source={StaticResource keyTypes}}"/>
-                        <DataGridComboBoxColumn Width="150" Header="Between- or Within- Subject"   
-                                        SelectedItemBinding="{Binding SubjectDesign}"   
-                              ItemsSource="{Binding Source={StaticResource keyDesign}}"/>
-                        <DataGridTextColumn Header="Levels" Width="183" Binding="{Binding Levels}"/>
+                        <DataGridTextColumn Header="FactorsName" Width="150" Binding="{Binding FactorsName, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" />
+                        <DataGridTemplateColumn  Width="100" Header="Type">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding FactorsType}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox x:Name="combo1" ItemsSource="{Binding Source={StaticResource keyTypes}}"
+                                              SelectedItem="{Binding Path=vTypes}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
+
+                        <DataGridTemplateColumn Width="150" Header="Between- or Within- Subject">
+                            <DataGridTemplateColumn.CellTemplate>
+                                <DataTemplate>
+                                    <TextBlock Text="{Binding FactorsDesign}" />
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellTemplate>
+                            <DataGridTemplateColumn.CellEditingTemplate>
+                                <DataTemplate>
+                                    <ComboBox x:Name="combo1" ItemsSource="{Binding Source={StaticResource keyDesign}}"
+                                              SelectedItem="{Binding Path=SubjectDesign}"/>
+                                </DataTemplate>
+                            </DataGridTemplateColumn.CellEditingTemplate>
+                        </DataGridTemplateColumn>
+                        <DataGridTextColumn Header="Levels" Width="183" Binding="{Binding Levels, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
                     </DataGrid.Columns>
                 </DataGrid>
             </Grid>
-
+        -->
         </Canvas>
         <Canvas x:Name="canvas3" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
-
+            <Grid Height="417" Width="592">
+                <Label Content="Factors Name(Independet)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151"/>
+                <Label Content="Levels" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="237,0,0,0"/>
+                <Label Content="Strategy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Margin="476,0,0,0"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="0,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="151"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="0,153,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="151"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,153,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,181,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,209,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,237,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="0,277,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="151"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,277,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,305,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,361,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
+                <ComboBox HorizontalAlignment="Left" Margin="433,32,0,0" VerticalAlignment="Top" Width="149" SelectedValuePath="Tag" SelectedValue="tag1">
+                    <ComboBoxItem Tag="tag1"  Content="Fully counter-balancing" />
+                    <ComboBoxItem Tag="tag2" Content="Latin square" />
+                    <ComboBoxItem Tag="tag3" Content="No counter-balancing" />
+                </ComboBox>
+                <ComboBox HorizontalAlignment="Left" Margin="433,153,0,0" VerticalAlignment="Top" Width="149" SelectedValuePath="Tag" SelectedValue="tag1">
+                    <ComboBoxItem Tag="tag1"  Content="Fully counter-balancing" />
+                    <ComboBoxItem Tag="tag2" Content="Latin square" />
+                    <ComboBoxItem Tag="tag3" Content="No counter-balancing" />
+                </ComboBox>
+                <ComboBox HorizontalAlignment="Left" Margin="433,277,0,0" VerticalAlignment="Top" Width="149" SelectedValuePath="Tag" SelectedValue="tag1">
+                    <ComboBoxItem Tag="tag1"  Content="Fully counter-balancing" />
+                    <ComboBoxItem Tag="tag2" Content="Latin square" />
+                    <ComboBoxItem Tag="tag3" Content="No counter-balancing" />
+                </ComboBox>
+            </Grid>
         </Canvas>
         <Canvas x:Name="canvas4" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+            <Grid Height="417" Width="592">
+                <Label Content="No. of trials per condition:" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="163"/>
+                <Label Content="No. of blocks per participant:" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top" Width="163"/>
+                <Label Content="Time cost per trial:" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top" Width="163"/>
+                <Label Content="Min No. of participants:" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="149"/>
+                <Label Content="Actual No. of participants:" HorizontalAlignment="Left" Margin="300,41,0,0" VerticalAlignment="Top" Width="149"/>
+                <Label Content="fee per participant:" HorizontalAlignment="Left" Margin="300,72,0,0" VerticalAlignment="Top" Width="149"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="178,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="91"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="178,44,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="91"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="178,75,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="91"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="454,41,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="91"/>
+                <TextBox HorizontalAlignment="Left" Height="23" Margin="454,74,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="91"/>
+                <Label Content="Total time cost:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="163"/>
+                <Label Content="Total payment::" HorizontalAlignment="Left" Margin="300,103,0,0" VerticalAlignment="Top" Width="149"/>
+                <TextBlock HorizontalAlignment="Left" Margin="178,108,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="91" Height="21"/>
+                <TextBlock HorizontalAlignment="Left" Margin="454,103,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="91" Height="21"/>
+                <TextBlock HorizontalAlignment="Left" Margin="454,13,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Width="91" Height="21" RenderTransformOrigin="0.476,-3.032"/>
 
+            </Grid>
         </Canvas>
         <Canvas x:Name="canvas5" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+            <Grid Height="417" Width="592">
+                <Button Content="Auto-Generate Questionnaire" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="179"/>
 
+            </Grid>
         </Canvas>
     </Grid>
 </Window>

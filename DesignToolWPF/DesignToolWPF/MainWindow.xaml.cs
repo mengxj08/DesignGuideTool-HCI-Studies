@@ -20,15 +20,14 @@ namespace DesignToolWPF
     /// Interaction logic for MainWindow.xaml
     /// </summary>
     /// 
-    public enum Types { Indepedent, Dependent };
-    public enum SubjectDesign { Bewtween, Within}
+    public enum vTypes {Indepedent, Dependent };
+    public enum SubjectDesign {Bewtween, Within};
     public partial class MainWindow : Window
     {
+        public int num = 1;
         public MainWindow()
         {
             InitializeComponent();
-            ObservableCollection<Member> memberData = new ObservableCollection<Member>();
-            dataGrid.DataContext = memberData;
         }
 
         private void setInvisible()
@@ -57,24 +56,33 @@ namespace DesignToolWPF
         }
         private void Button4_Click(object sender, RoutedEventArgs e)
         {
-
+            setInvisible();
+            this.canvas4.Visibility = System.Windows.Visibility.Visible;
         }
         private void Button5_Click(object sender, RoutedEventArgs e)
         {
-
+            setInvisible();
+            this.canvas5.Visibility = System.Windows.Visibility.Visible;
         }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        public void Window_Loaded(object sender, RoutedEventArgs e)
         {
-
+            ObservableCollection<Member> memberData = new ObservableCollection<Member>();
+            //dataGrid.DataContext = memberData;
+            //dataGrid.
+            memberData.Add(new Member()
+            {
+                FactorsName = "Technology",
+                FactorsType = vTypes.Indepedent,
+                FactorsDesign = SubjectDesign.Within,
+                Levels = "ipod and earpod"
+            });
         }
-       
     }
     
     public class Member
     {
-        public string FactorsName{get; set;}
-        public Types FactorsType { get; set; }
+        public string FactorsName {get; set;}
+        public vTypes FactorsType { get; set; }
         public SubjectDesign FactorsDesign { get; set; }
         public string Levels { get; set; }
     } 
