@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<!-- Data structure of user study design -->
+<design_guide>
+  <research_question>
+    <experiment_title></experiment_title>
+    <experiment_description></experiment_description>
+    <experiment_conductor></experiment_conductor>
+    <hypothesis>
+      <main_solution></main_solution>
+      <compare_solutions>
+        <compare_solution>
+          <id></id>
+          <name></name>
+        </compare_solution>
+      </compare_solutions>
+      <tasks>
+        <task>
+          <id></id>
+          <name></name>
+        </task>
+      </tasks>
+      <context></context>
+      <measures>
+        <measure>
+          <id></id>
+          <name></name>
+        </measure>
+      </measures>
+      <target_population></target_population>
+    </hypothesis>
+  </research_question>
+  <variables>
+    <independent_variable>
+      <name></name>
+      <type></type>  <!-- primary or secondary -->
+      <levels>
+        <level>
+          <id></id>
+          <value></value>
+        </level>
+      </levels>
+      <counter_balance></counter_balance>  <!-- None, Latin Square, and fully counter balance -->
+    </independent_variable>
+    <dependent_variable>
+      <name></name>
+    </dependent_variable>
+    <control_variable>
+    </control_variable>
+    <random_variable>
+    </random_variable>
+  </variables>
+  <arrangement>
+    <min_number></min_number>
+    <actual_number></actual_number>
+    <fee_per_participant></fee_per_participant>  <!-- total payment = actual_number * fee_per_participant -->
+    <trial></trial>
+    <time_per_trial></time_per_trial>
+    <block></block>
+    <participants>
+      <participant>  <!-- personal information can be extended later -->
+        <id></id>
+        <individual_arrangement></individual_arrangement>  <!-- ?? -->
+      </participant>
+    </participants>
+  </arrangement>
+</design_guide>
