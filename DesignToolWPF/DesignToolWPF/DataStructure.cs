@@ -16,6 +16,10 @@ namespace DesignToolWPF
 
         public DataStructure()
         {
+            researchQuestion = new ResearchQuestion();
+            arrangement = new Arrangement();
+            independentVariables = new List<IndependentVariable>();
+            dependentVariables = new List<DependentVariable>();
         }
 
         // Construct from an existing xml file.
