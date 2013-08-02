@@ -9,7 +9,7 @@ namespace DesignToolWPF
 {
     class DataStructure
     {
-        ResearchQuestion researchQuestion;
+        public ResearchQuestion researchQuestion { set; get; }
         Arrangement arrangement;
         List<IndependentVariable> independentVariables;
         List<DependentVariable> dependentVariables;
@@ -276,18 +276,42 @@ namespace DesignToolWPF
             {
                 public int id;
                 public string name;
+                public CompareSolution()
+                { 
+                }
+                public CompareSolution(int id, string name)
+                {
+                    this.id = id;
+                    this.name = name;
+                }
             }
 
             public class Task
             {
                 public int id;
                 public string name;
+                public Task()
+                { 
+                }
+                public Task(int id, string name)
+                {
+                    this.id = id;
+                    this.name = name;
+                }
             }
 
             public class Measure
             {
                 public int id;
                 public string name;
+                public Measure()
+                { 
+                }
+                public Measure(int id, string name)
+                {
+                    this.id = id;
+                    this.name = name;
+                }
             }
         }
     }

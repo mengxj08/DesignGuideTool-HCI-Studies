@@ -5,6 +5,7 @@
         xmlns:local="clr-namespace:DesignToolWPF" 
         Title="MainWindow" Height="500" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
+        <!--
         <ObjectDataProvider x:Key="keyTypes" MethodName="GetValues" ObjectType="{x:Type assembly:Enum}">
             <ObjectDataProvider.MethodParameters>
                 <x:Type Type="local:vTypes"></x:Type>
@@ -15,10 +16,11 @@
                 <x:Type Type="local:SubjectDesign"></x:Type>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
+        -->
     </Window.Resources>
     <Grid>
         <Canvas HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="792">
-            <TextBox x:Name="textbox1" Height="50" TextWrapping="Wrap" Width="792"/>
+            <TextBox x:Name="textbox0" Height="50" TextWrapping="Wrap" Width="792" Text="{Binding Path=researchQuestion.experimentTitle, Mode=TwoWay}" />
         </Canvas>
         <Canvas HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="200" Margin="0,50,0,0">
             <Button Content="Reasearch Question" Width="126" Height="35" Canvas.Left="29" Canvas.Top="29" Click="Button1_Click"/>
@@ -27,7 +29,7 @@
             <Button Content="Decide block and trial" Width="126" Height="35" Canvas.Left="29" Canvas.Top="264" Click="Button4_Click"/>
             <Button Content="Questionnaire" Width="126" Height="35" Canvas.Left="29" Canvas.Top="349" Click="Button5_Click"/>
         </Canvas>
-        <Canvas x:Name="canvas0" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Visible">
+        <Canvas x:Name="canvas0" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
             <TextBlock Height="417" TextWrapping="Wrap" Width="592">
                 <Bold>
                 Welcome to designing Experiment Guide~~
@@ -38,15 +40,15 @@
                 </Bold>
             </TextBlock>
         </Canvas>
-        <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+        <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Visible">
             <Label Content="Your Question:"/>
             <Label Content="Experiment Name:" Canvas.Top="52"/>
             <Label Content="Author:" Canvas.Top="104"/>
             <Label Content="Description:" Canvas.Top="163"/>
-            <TextBox Height="26" Canvas.Left="107" TextWrapping="Wrap" Text="" Width="485"/>
-            <TextBox Height="24" Canvas.Left="107" TextWrapping="Wrap" Text="" Width="485" Canvas.Top="54"/>
-            <TextBox Height="24" Canvas.Left="107" TextWrapping="Wrap" Text="" Width="485" Canvas.Top="106"/>
-            <TextBox Height="24" Canvas.Left="107" TextWrapping="Wrap" Text="" Width="485" Canvas.Top="165"/>
+            <TextBox x:Name="textbox1" Height="26" Canvas.Left="107" TextWrapping="Wrap" Width="485" Text="{Binding Path=researchQuestion.experimentTitle, Mode=TwoWay}"/>
+            <TextBox x:Name="textbox2" Height="24" Canvas.Left="107" TextWrapping="Wrap" Width="485" Canvas.Top="54" Text="{Binding Path=researchQuestion.experimentTitle, Mode=TwoWay}"/>
+            <TextBox x:Name="textbox3" Height="24" Canvas.Left="107" TextWrapping="Wrap" Width="485" Canvas.Top="106" Text="{Binding Path=researchQuestion.experimentConductor,Mode=TwoWay}"/>
+            <TextBox x:Name="textbox4" Height="24" Canvas.Left="107" TextWrapping="Wrap" Width="485" Canvas.Top="165" Text="{Binding Path=researchQuestion.experimentDescription,Mode=TwoWay}"/>
             <TextBox Height="23" TextWrapping="Wrap" Text="Your solution/product/service" Width="485" Canvas.Top="224"/>
             <TextBox Height="24" TextWrapping="Wrap" Text="other solutions/products/services" Width="485" Canvas.Top="262"/>
             <TextBox Height="24" TextWrapping="Wrap" Text="certain task" Width="485" Canvas.Top="300"/>
@@ -56,6 +58,16 @@
             <Label Content="in" Canvas.Top="262" Canvas.Left="490"/>
             <Label Content="under" Canvas.Top="300" Canvas.Left="490"/>
             <Label Content="based on" Canvas.Top="341" Canvas.Left="490"/>
+            <!--
+            <ListBox Height="23" Canvas.Left="385" Canvas.Top="224" Width="100" RenderTransformOrigin="0.317,0.413">
+                <ListBoxItem Content="Coffie"></ListBoxItem>
+                <ListBoxItem Content="Tea"></ListBoxItem>
+                <ListBoxItem Content="Orange Juice"></ListBoxItem>
+                <ListBoxItem Content="Milk"></ListBoxItem>
+                <ListBoxItem Content="Iced Tea"></ListBoxItem>
+                <ListBoxItem Content="Mango Shake"></ListBoxItem>
+            </ListBox>
+            -->
         </Canvas>
         <Canvas x:Name="canvas2" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
             <TabControl Height="417" Width="592">
