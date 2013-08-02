@@ -40,7 +40,7 @@
                 </Bold>
             </TextBlock>
         </Canvas>
-        <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Visible">
+        <Canvas x:Name="canvas1" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
             <Label Content="Your Question:"/>
             <Label Content="Experiment Name:" Canvas.Top="52"/>
             <Label Content="Author:" Canvas.Top="104"/>
@@ -49,15 +49,18 @@
             <TextBox x:Name="textbox2" Height="24" Canvas.Left="107" TextWrapping="Wrap" Width="485" Canvas.Top="54" Text="{Binding Path=researchQuestion.experimentTitle, Mode=TwoWay}"/>
             <TextBox x:Name="textbox3" Height="24" Canvas.Left="107" TextWrapping="Wrap" Width="485" Canvas.Top="106" Text="{Binding Path=researchQuestion.experimentConductor,Mode=TwoWay}"/>
             <TextBox x:Name="textbox4" Height="24" Canvas.Left="107" TextWrapping="Wrap" Width="485" Canvas.Top="165" Text="{Binding Path=researchQuestion.experimentDescription,Mode=TwoWay}"/>
-            <TextBox Height="23" TextWrapping="Wrap" Text="Your solution/product/service" Width="485" Canvas.Top="224"/>
-            <TextBox Height="24" TextWrapping="Wrap" Text="other solutions/products/services" Width="485" Canvas.Top="262"/>
-            <TextBox Height="24" TextWrapping="Wrap" Text="certain task" Width="485" Canvas.Top="300"/>
-            <TextBox Height="24" TextWrapping="Wrap" Text="certain context" Width="485" Canvas.Top="341"/>
-            <TextBox Height="24" TextWrapping="Wrap" Text="certain measures" Width="485" Canvas.Top="383"/>
+            
+            <TextBox x:Name="textbox5" Height="23" TextWrapping="Wrap" Text="{Binding Path=mainSolution,Mode=TwoWay}" Width="485" Canvas.Top="224"/>
+            <TextBox x:Name="textbox6" Height="24" TextWrapping="Wrap" Text="{Binding Path=compareSolutions[0].name}" Width="485" Canvas.Top="262"/>
+            <TextBox x:Name="textbox7" Height="24" TextWrapping="Wrap" Text="{Binding Path=tasks[0].name, Mode=TwoWay}" Width="485" Canvas.Top="300"/>
+            <TextBox x:Name="textbox8" Height="24" TextWrapping="Wrap" Text="{Binding Path=context, Mode=TwoWay}" Width="485" Canvas.Top="341"/>
+            <TextBox x:Name="textbox9" Height="24" TextWrapping="Wrap" Text="{Binding Path=measures[0].name, Mode=TwoWay}" Width="485" Canvas.Top="383"/>
+
             <Label Content="is better than" Canvas.Top="224" Canvas.Left="490"/>
             <Label Content="in" Canvas.Top="262" Canvas.Left="490"/>
             <Label Content="under" Canvas.Top="300" Canvas.Left="490"/>
             <Label Content="based on" Canvas.Top="341" Canvas.Left="490"/>
+            
             <!--
             <ListBox Height="23" Canvas.Left="385" Canvas.Top="224" Width="100" RenderTransformOrigin="0.317,0.413">
                 <ListBoxItem Content="Coffie"></ListBoxItem>
@@ -69,7 +72,7 @@
             </ListBox>
             -->
         </Canvas>
-        <Canvas x:Name="canvas2" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+        <Canvas x:Name="canvas2" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Visible">
             <TabControl Height="417" Width="592">
                 <TabItem Header="Independent Variables">
                     <Grid Background="#FFE5E5E5">

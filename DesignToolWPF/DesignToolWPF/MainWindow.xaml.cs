@@ -86,9 +86,11 @@ namespace DesignToolWPF
            this.datas.researchQuestion.experimentDescription = "This is an experiment to compare differnt technologies.";
 
            this.datas.researchQuestion.hypothesis.mainSolution = "earPod";
+           this.datas.researchQuestion.hypothesis.context = "Noisy environment";
            this.datas.researchQuestion.hypothesis.compareSolutions.Add(new ResearchQuestion.Hypothesis.CompareSolution(0,"ipod"));
            this.datas.researchQuestion.hypothesis.tasks.Add(new ResearchQuestion.Hypothesis.Task(0,"Single Tasks"));
            this.datas.researchQuestion.hypothesis.measures.Add(new ResearchQuestion.Hypothesis.Measure(0,"Time cost"));
+          // this.datas.researchQuestion.hypothesis.compareSolutions[0].name = "ipod";
            BindingProcess();
         }
         public void BindingProcess()
@@ -98,6 +100,12 @@ namespace DesignToolWPF
             this.textbox2.DataContext = datas;
             this.textbox3.DataContext = datas;
             this.textbox4.DataContext = datas;
+
+            this.textbox5.DataContext = datas.researchQuestion.hypothesis;
+            this.textbox6.DataContext = datas.researchQuestion.hypothesis;
+            this.textbox7.DataContext = datas.researchQuestion.hypothesis;
+            this.textbox8.DataContext = datas.researchQuestion.hypothesis;
+            this.textbox9.DataContext = datas.researchQuestion.hypothesis;
         }
     }
     /*
