@@ -7,15 +7,19 @@ using System.Xml;
 
 namespace DesignToolWPF
 {
-    class DataStructure
+    public class DataStructure
     {
-        ResearchQuestion researchQuestion;
-        Arrangement arrangement;
-        List<IndependentVariable> independentVariables;
-        List<DependentVariable> dependentVariables;
+        ResearchQuestion researchQuestion { get; set; }
+        Arrangement arrangement { get; set; }
+        List<IndependentVariable> independentVariables { get; set; }
+        List<DependentVariable> dependentVariables { get; set; }
 
         public DataStructure()
         {
+            researchQuestion = new ResearchQuestion();
+            arrangement = new Arrangement();
+            independentVariables = new List<IndependentVariable>();
+            dependentVariables = new List<DependentVariable>();
         }
 
         // Construct from an existing xml file.
@@ -240,12 +244,12 @@ namespace DesignToolWPF
         }
     }
 
-    class ResearchQuestion
+    public class ResearchQuestion
     {
         public string experimentTitle { get; set; }
         public string experimentDescription { get; set; }
         public string experimentConductor { get; set; }
-        public Hypothesis hypothesis;
+        public Hypothesis hypothesis { get; set; }
 
         public ResearchQuestion()
         {
@@ -254,12 +258,12 @@ namespace DesignToolWPF
 
         public class Hypothesis
         {
-            public string mainSolution;
-            public List<CompareSolution> compareSolutions;
-            public List<Task> tasks;
-            public string context;
-            public List<Measure> measures;
-            public string targetPopulation;
+            public string mainSolution { get; set; }
+            public List<CompareSolution> compareSolutions { get; set; }
+            public List<Task> tasks { get; set; }
+            public string context { get; set; }
+            public List<Measure> measures { get; set; }
+            public string targetPopulation { get; set; }
 
             public Hypothesis()
             {
@@ -270,30 +274,30 @@ namespace DesignToolWPF
 
             public class CompareSolution
             {
-                public int id;
-                public string name;
+                public int id { get; set; }
+                public string name { get; set; }
             }
 
             public class Task
             {
-                public int id;
-                public string name;
+                public int id { get; set; }
+                public string name { get; set; }
             }
 
             public class Measure
             {
-                public int id;
-                public string name;
+                public int id { get; set; }
+                public string name { get; set; }
             }
         }
     }
 
-    class IndependentVariable
+    public class IndependentVariable
     {
         public string name { get; set; }
         public IVTYPE type;
         public COUNTERBALANCE counterBalance;
-        public List<Level> levels;
+        public List<Level> levels { get; set; }
 
         public IndependentVariable()
         {
@@ -311,20 +315,20 @@ namespace DesignToolWPF
         }
     }
 
-    class DependentVariable
+    public class DependentVariable
     {
         public string name { get; set; }
     }
 
-    class ControlVariable
+    public class ControlVariable
     {
     }
 
-    class RandomVariable
+    public class RandomVariable
     {
     }
 
-    class Arrangement
+    public class Arrangement
     {
         public int minNum { get; set; }
         public int actualNum { get; set; }
@@ -332,7 +336,7 @@ namespace DesignToolWPF
         public int trial { get; set; }
         public int timePerTrial { get; set; }
         public int block { get; set; }
-        public List<Participant> participants;
+        public List<Participant> participants { get; set; }
 
         public Arrangement()
         {
