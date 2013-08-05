@@ -32,7 +32,7 @@
   <variables>
     <independent_variable>
       <name></name>
-      <type></type>  <!-- primary or secondary -->
+      <subject_design></subject_design>  <!-- between or within -->
       <levels>
         <level>
           <id></id>
