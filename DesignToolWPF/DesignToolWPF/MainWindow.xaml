@@ -5,18 +5,18 @@
         xmlns:local="clr-namespace:DesignToolWPF" 
         Title="MainWindow" Height="500" Width="800" Loaded="Window_Loaded">
     <Window.Resources>
-        <!--
-        <ObjectDataProvider x:Key="keyTypes" MethodName="GetValues" ObjectType="{x:Type assembly:Enum}">
+        <ObjectDataProvider x:Key="SubjectTypes" MethodName="GetValues" ObjectType="{x:Type assembly:Enum}">
             <ObjectDataProvider.MethodParameters>
-                <x:Type Type="local:vTypes"></x:Type>
+                <x:Type Type="local:SUBJECTDESIGN"></x:Type>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
-        <ObjectDataProvider x:Key="keyDesign" MethodName="GetValues" ObjectType="{x:Type assembly:Enum}">
+        
+        <ObjectDataProvider x:Key="keyStrategy" MethodName="GetValues" ObjectType="{x:Type assembly:Enum}">
             <ObjectDataProvider.MethodParameters>
-                <x:Type Type="local:SubjectDesign"></x:Type>
+                <x:Type Type="local:COUNTERBALANCE"></x:Type>
             </ObjectDataProvider.MethodParameters>
         </ObjectDataProvider>
-        -->
+        
     </Window.Resources>
     <Grid>
         <Canvas HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="792">
@@ -72,7 +72,7 @@
             </ListBox>
             -->
         </Canvas>
-        <Canvas x:Name="canvas2" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Visible">
+        <Canvas x:Name="canvas2" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
             <TabControl Height="417" Width="592">
                 <TabItem Header="Independent Variables">
                     <Grid Background="#FFE5E5E5">
@@ -80,22 +80,22 @@
                         <Label Content="Type" HorizontalAlignment="Left" Margin="126,0,0,0" VerticalAlignment="Top" Width="54"/>
                         <Label Content="Between-/Within- Design" HorizontalAlignment="Left" Margin="220,0,0,0" VerticalAlignment="Top" Width="146"/>
                         <Label Content="Levels" HorizontalAlignment="Left" Margin="385,0,0,0" VerticalAlignment="Top" Width="54"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="7,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,30,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="7,149,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,149,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,177,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,205,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,233,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="10,265,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,261,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,289,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,317,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="385,345,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
-                        <ComboBox HorizontalAlignment="Left" Margin="98,31,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
+                        <TextBox x:Name="textbox10" HorizontalAlignment="Left" Height="23" Margin="7,31,0,0" TextWrapping="Wrap" Text="{Binding Path=[0].name, Mode=TwoWay}" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox11" HorizontalAlignment="Left" Height="23" Margin="385,30,0,0" TextWrapping="Wrap" Text="{Binding Path=[0].levels[0].value, Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox12" HorizontalAlignment="Left" Height="23" Margin="385,59,0,0" TextWrapping="Wrap" Text="{Binding Path=[0].levels[1].value, Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox13" HorizontalAlignment="Left" Height="23" Margin="385,87,0,0" TextWrapping="Wrap" Text="{Binding Path=[0].levels[2].value, Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox14" HorizontalAlignment="Left" Height="23" Margin="385,115,0,0" TextWrapping="Wrap" Text="{Binding Path=[0].levels[3].value, Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox15" HorizontalAlignment="Left" Height="23" Margin="7,149,0,0" TextWrapping="Wrap" Text="{Binding Path=[1].name, Mode=TwoWay}" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox16" HorizontalAlignment="Left" Height="23" Margin="385,149,0,0" TextWrapping="Wrap" Text="{Binding Path=[1].levels[0].value, Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox17" HorizontalAlignment="Left" Height="23" Margin="385,177,0,0" TextWrapping="Wrap" Text="{Binding Path=[1].levels[1].value, Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox18" HorizontalAlignment="Left" Height="23" Margin="385,205,0,0" TextWrapping="Wrap" Text="{Binding Path=[1].levels[2].value,Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox19" HorizontalAlignment="Left" Height="23" Margin="385,233,0,0" TextWrapping="Wrap" Text="{Binding Path=[1].levels[3].value, Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox20" HorizontalAlignment="Left" Height="23" Margin="10,265,0,0" TextWrapping="Wrap" Text="{Binding Path=[2].name,Mode=TwoWay}" VerticalAlignment="Top" Width="86" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox21" HorizontalAlignment="Left" Height="23" Margin="385,261,0,0" TextWrapping="Wrap" Text="{Binding Path=[2].levels[0].value, Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox22" HorizontalAlignment="Left" Height="23" Margin="385,289,0,0" TextWrapping="Wrap" Text="{Binding Path=[2].levels[1].value, Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox23" HorizontalAlignment="Left" Height="23" Margin="385,317,0,0" TextWrapping="Wrap" Text="{Binding Path=[2].levels[2].value, Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <TextBox x:Name="textbox24" HorizontalAlignment="Left" Height="23" Margin="385,345,0,0" TextWrapping="Wrap" Text="{Binding Path=[2].levels[3].value, Mode=TwoWay}" VerticalAlignment="Top" Width="187" RenderTransformOrigin="-0.151,-3.043"/>
+                        <ComboBox HorizontalAlignment="Left" Margin="98,31,0,0" VerticalAlignment="Top" Width="94"  SelectedValuePath="Tag" SelectedValue="tag1">
                             <ComboBoxItem Content="Indepedent" Tag="tag1"/>
                         </ComboBox>
                         <ComboBox HorizontalAlignment="Left" Margin="98,150,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
@@ -104,29 +104,19 @@
                         <ComboBox HorizontalAlignment="Left" Margin="98,266,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
                             <ComboBoxItem Content="Independent" Tag="tag1" />
                         </ComboBox>
-                        <ComboBox HorizontalAlignment="Left" Margin="227,32,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
-                            <ComboBoxItem Content="Within" Tag="tag1"/>
-                            <ComboBoxItem Content="Between" Tag="tga2" />
-                        </ComboBox>
-                        <ComboBox HorizontalAlignment="Left" Margin="227,149,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
-                            <ComboBoxItem Content="Within" Tag="tag1"/>
-                            <ComboBoxItem Content="Between" Tag="tag2" />
-                        </ComboBox>
-                        <ComboBox HorizontalAlignment="Left" Margin="227,266,0,0" VerticalAlignment="Top" Width="94" SelectedValuePath="Tag" SelectedValue="tag1">
-                            <ComboBoxItem Content="Within" Tag="tag1" />
-                            <ComboBoxItem Content="Between" Tag="tag2" />
-                        </ComboBox>
-
+                        <ComboBox x:Name="combobox1" HorizontalAlignment="Left" Margin="227,32,0,0" VerticalAlignment="Top" Width="94" SelectedItem="{Binding Path=[0].subjectDesign, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource SubjectTypes}}" />
+                        <ComboBox x:Name="combobox2" HorizontalAlignment="Left" Margin="227,149,0,0" VerticalAlignment="Top" Width="94" SelectedItem="{Binding Path=[1].subjectDesign, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource SubjectTypes}}" />
+                        <ComboBox x:Name="combobox3" HorizontalAlignment="Left" Margin="227,266,0,0" VerticalAlignment="Top" Width="94" SelectedItem="{Binding Path=[2].subjectDesign, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource SubjectTypes}}" />
                     </Grid>
                 </TabItem>
                 <TabItem Header="Dependent Variables">
                     <Grid Background="#FFE5E5E5">
                         <Label Content="Facotrs Name" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top" Width="102"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,13,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,51,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,88,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,127,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
-                        <TextBox HorizontalAlignment="Left" Height="23" Margin="131,168,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="DV1" HorizontalAlignment="Left" Height="23" Margin="131,13,0,0" TextWrapping="Wrap" Text="{Binding Path=[0].name,Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="DV2" HorizontalAlignment="Left" Height="23" Margin="131,51,0,0" TextWrapping="Wrap" Text="{Binding Path=[1].name,Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="DV3" HorizontalAlignment="Left" Height="23" Margin="131,88,0,0" TextWrapping="Wrap" Text="{Binding Path=[2].name, Mode=TwoWay}" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="DV4" HorizontalAlignment="Left" Height="23" Margin="131,127,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
+                        <TextBox x:Name="DV5" HorizontalAlignment="Left" Height="23" Margin="131,168,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="120"/>
                     </Grid>
 
                 </TabItem>
@@ -171,41 +161,29 @@
             </Grid>
         -->
         </Canvas>
-        <Canvas x:Name="canvas3" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">
+        <Canvas x:Name="canvas3" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Visible">
             <Grid Height="417" Width="592">
                 <Label Content="Factors Name(Independet)" HorizontalAlignment="Left" VerticalAlignment="Top" Width="151"/>
                 <Label Content="Levels" HorizontalAlignment="Left" VerticalAlignment="Top" Width="105" Margin="237,0,0,0"/>
                 <Label Content="Strategy" HorizontalAlignment="Left" VerticalAlignment="Top" Width="92" Margin="476,0,0,0"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="0,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="151"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,31,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,59,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,87,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,115,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="0,153,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="151"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,153,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,181,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,209,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,237,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="0,277,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="151"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,277,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,305,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,333,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <TextBox HorizontalAlignment="Left" Height="23" Margin="179,361,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="238"/>
-                <ComboBox HorizontalAlignment="Left" Margin="433,32,0,0" VerticalAlignment="Top" Width="149" SelectedValuePath="Tag" SelectedValue="tag1">
-                    <ComboBoxItem Tag="tag1"  Content="Fully counter-balancing" />
-                    <ComboBoxItem Tag="tag2" Content="Latin square" />
-                    <ComboBoxItem Tag="tag3" Content="No counter-balancing" />
-                </ComboBox>
-                <ComboBox HorizontalAlignment="Left" Margin="433,153,0,0" VerticalAlignment="Top" Width="149" SelectedValuePath="Tag" SelectedValue="tag1">
-                    <ComboBoxItem Tag="tag1"  Content="Fully counter-balancing" />
-                    <ComboBoxItem Tag="tag2" Content="Latin square" />
-                    <ComboBoxItem Tag="tag3" Content="No counter-balancing" />
-                </ComboBox>
-                <ComboBox HorizontalAlignment="Left" Margin="433,277,0,0" VerticalAlignment="Top" Width="149" SelectedValuePath="Tag" SelectedValue="tag1">
-                    <ComboBoxItem Tag="tag1"  Content="Fully counter-balancing" />
-                    <ComboBoxItem Tag="tag2" Content="Latin square" />
-                    <ComboBoxItem Tag="tag3" Content="No counter-balancing" />
-                </ComboBox>
+                <TextBox x:Name="IDV1" HorizontalAlignment="Left" Height="23" Margin="0,31,0,0" TextWrapping="Wrap" Text="{Binding Path=[0].name, Mode=TwoWay}" VerticalAlignment="Top" Width="151"/>
+                <TextBox x:Name="IDV1_L1" HorizontalAlignment="Left" Height="23" Margin="179,31,0,0" TextWrapping="Wrap" Text="{Binding Path=[0].levels[0].value, Mode=TwoWay}" VerticalAlignment="Top" Width="238"/>
+                <TextBox x:Name="IDV1_L2" HorizontalAlignment="Left" Height="23" Margin="179,59,0,0" TextWrapping="Wrap" Text="{Binding Path=[0].levels[1].value}" VerticalAlignment="Top" Width="238"/>
+                <TextBox x:Name="IDV1_L3" HorizontalAlignment="Left" Height="23" Margin="179,87,0,0" TextWrapping="Wrap" Text="{Binding Path=[0].levels[2].value}" VerticalAlignment="Top" Width="238"/>
+                <TextBox x:Name="IDV1_L4" HorizontalAlignment="Left" Height="23" Margin="179,115,0,0" TextWrapping="Wrap" Text="{Binding Path=[0].levels[3].value}" VerticalAlignment="Top" Width="238"/>
+                <TextBox x:Name="IDV2" HorizontalAlignment="Left" Height="23" Margin="0,153,0,0" TextWrapping="Wrap" Text="{Binding Path=[1].name, Mode=TwoWay}" VerticalAlignment="Top" Width="151"/>
+                <TextBox x:Name="IDV2_L1" HorizontalAlignment="Left" Height="23" Margin="179,153,0,0" TextWrapping="Wrap" Text="{Binding Path=[1].levels[0].value, Mode=TwoWay}" VerticalAlignment="Top" Width="238"/>
+                <TextBox x:Name="IDV2_L2" HorizontalAlignment="Left" Height="23" Margin="179,181,0,0" TextWrapping="Wrap" Text="{Binding Path=[1].levels[1].value, Mode=TwoWay}" VerticalAlignment="Top" Width="238"/>
+                <TextBox x:Name="IDV2_L3" HorizontalAlignment="Left" Height="23" Margin="179,209,0,0" TextWrapping="Wrap" Text="{Binding Path=[1].levels[2].value, Mode=TwoWay}" VerticalAlignment="Top" Width="238"/>
+                <TextBox x:Name="IDV2_L4" HorizontalAlignment="Left" Height="23" Margin="179,237,0,0" TextWrapping="Wrap" Text="{Binding Path=[1].levels[3].value, Mode=TwoWay}" VerticalAlignment="Top" Width="238"/>
+                <TextBox x:Name="IDV3" HorizontalAlignment="Left" Height="23" Margin="0,277,0,0" TextWrapping="Wrap" Text="{Binding Path=[2].name, Mode=TwoWay}" VerticalAlignment="Top" Width="151"/>
+                <TextBox x:Name="IDV3_L1" HorizontalAlignment="Left" Height="23" Margin="179,277,0,0" TextWrapping="Wrap" Text="{Binding Path=[2].levels[0].value, Mode=TwoWay}" VerticalAlignment="Top" Width="238"/>
+                <TextBox x:Name="IDV3_L2" HorizontalAlignment="Left" Height="23" Margin="179,305,0,0" TextWrapping="Wrap" Text="{Binding Path=[2].levels[1].value, Mode=TwoWay}" VerticalAlignment="Top" Width="238"/>
+                <TextBox x:Name="IDV3_L3" HorizontalAlignment="Left" Height="23" Margin="179,333,0,0" TextWrapping="Wrap" Text="{Binding Path=[2].levels[2].value, Mode=TwoWay}" VerticalAlignment="Top" Width="238"/>
+                <TextBox x:Name="IDV3_L4" HorizontalAlignment="Left" Height="23" Margin="179,361,0,0" TextWrapping="Wrap" Text="{Binding Path=[2].levels[3].value, Mode=TwoWay}" VerticalAlignment="Top" Width="238"/>
+                <ComboBox x:Name="counterBalance1" HorizontalAlignment="Left" Margin="433,32,0,0" VerticalAlignment="Top" Width="149" SelectedItem="{Binding Path=[0].counterBalance, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource keyStrategy}}" />
+                <ComboBox x:Name="counterBalance2" HorizontalAlignment="Left" Margin="433,153,0,0" VerticalAlignment="Top" Width="149" SelectedItem="{Binding Path=[1].counterBalance, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource keyStrategy}}"  />
+                <ComboBox x:Name="counetrBalance3" HorizontalAlignment="Left" Margin="433,277,0,0" VerticalAlignment="Top" Width="149" SelectedItem="{Binding Path=[2].counterBalance, Mode=TwoWay}" ItemsSource="{Binding Source={StaticResource keyStrategy}}"  />
             </Grid>
         </Canvas>
         <Canvas x:Name="canvas4" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">

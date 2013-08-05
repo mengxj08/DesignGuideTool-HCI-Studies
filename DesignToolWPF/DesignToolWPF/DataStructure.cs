@@ -80,7 +80,7 @@ namespace DesignToolWPF
             {
                 IndependentVariable iv = new IndependentVariable();
                 iv.name = ivNode.SelectSingleNode("name").InnerText;
-                iv.subjectDesign = (IndependentVariable.SUBJECTDESIGN)Enum.Parse(typeof(IndependentVariable.SUBJECTDESIGN), ivNode.SelectSingleNode("subject_design").InnerText, true);
+                iv.subjectDesign = (SUBJECTDESIGN)Enum.Parse(typeof(SUBJECTDESIGN), ivNode.SelectSingleNode("subject_design").InnerText, true);
                 XmlNode levelsNode = ivNode.SelectSingleNode("levels");
                 XmlNodeList levelsNodeList = levelsNode.SelectNodes("level");
                 foreach (XmlNode node in levelsNodeList)
@@ -90,7 +90,7 @@ namespace DesignToolWPF
                     level.value = node.SelectSingleNode("value").InnerText;
                     iv.levels.Add(level);
                 }
-                iv.counterBalance = (IndependentVariable.COUNTERBALANCE)Enum.Parse(typeof(IndependentVariable.COUNTERBALANCE), ivNode.SelectSingleNode("counter_balance").InnerText, true);
+                iv.counterBalance = (COUNTERBALANCE)Enum.Parse(typeof(COUNTERBALANCE), ivNode.SelectSingleNode("counter_balance").InnerText, true);
                 independentVariables.Add(iv);
             }
             XmlNodeList dvNodeList = variablesNode.SelectNodes("dependent_variable");
@@ -322,8 +322,8 @@ namespace DesignToolWPF
     public class IndependentVariable
     {
         public string name { get; set; }
-        public SUBJECTDESIGN subjectDesign;
-        public COUNTERBALANCE counterBalance;
+        public SUBJECTDESIGN subjectDesign{ get; set;}
+        public COUNTERBALANCE counterBalance{ get; set;}
         public List<Level> levels { get; set; }
 
         public IndependentVariable()
@@ -331,14 +331,10 @@ namespace DesignToolWPF
             levels = new List<Level>();
         }
 
-        public enum SUBJECTDESIGN { Between, Within };
-
-        public enum COUNTERBALANCE { None, LatinSquare, Full };
-        
         public class Level
         {
-            public int id;
-            public string value;
+            public int id{ get; set;}
+            public string value{get; set;}
         }
     }
 
@@ -376,4 +372,7 @@ namespace DesignToolWPF
             public string individualArrangement;
         }
     }
+
+    public enum SUBJECTDESIGN { Between, Within};
+    public enum COUNTERBALANCE { FullyCounterBalancing, LatinSquare, NoCounterBalancing};
 }

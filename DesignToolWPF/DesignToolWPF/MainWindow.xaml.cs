@@ -95,20 +95,42 @@ namespace DesignToolWPF
            this.datas.independentVariables.Add(new IndependentVariable());
            this.datas.independentVariables.Add(new IndependentVariable());
            this.datas.independentVariables.Add(new IndependentVariable());
+
+           this.datas.independentVariables[0].subjectDesign = SUBJECTDESIGN.Between;
+           this.datas.independentVariables[1].subjectDesign = SUBJECTDESIGN.Between;
+           this.datas.independentVariables[2].subjectDesign = SUBJECTDESIGN.Between;
+
+           this.datas.independentVariables[0].counterBalance = COUNTERBALANCE.LatinSquare;
+           this.datas.independentVariables[1].counterBalance = COUNTERBALANCE.LatinSquare;
+           this.datas.independentVariables[2].counterBalance = COUNTERBALANCE.LatinSquare;
+
+           this.datas.independentVariables[0].levels.Add(new IndependentVariable.Level());
            this.datas.independentVariables[0].levels.Add(new IndependentVariable.Level());
            this.datas.independentVariables[0].levels.Add(new IndependentVariable.Level());
            this.datas.independentVariables[0].levels.Add(new IndependentVariable.Level());
            this.datas.independentVariables[1].levels.Add(new IndependentVariable.Level());
            this.datas.independentVariables[1].levels.Add(new IndependentVariable.Level());
            this.datas.independentVariables[1].levels.Add(new IndependentVariable.Level());
+           this.datas.independentVariables[1].levels.Add(new IndependentVariable.Level());
            this.datas.independentVariables[2].levels.Add(new IndependentVariable.Level());
            this.datas.independentVariables[2].levels.Add(new IndependentVariable.Level());
            this.datas.independentVariables[2].levels.Add(new IndependentVariable.Level());
-           
+           this.datas.independentVariables[2].levels.Add(new IndependentVariable.Level());
+
+           this.datas.independentVariables[0].levels[0].value = this.datas.researchQuestion.hypothesis.mainSolution;
+           this.datas.independentVariables[0].levels[1].value = this.datas.researchQuestion.hypothesis.compareSolutions[0].name;
+
+           this.datas.independentVariables[1].levels[0].value = this.datas.researchQuestion.hypothesis.context;
+           this.datas.independentVariables[1].levels[1].value = "Quiet environment";
+
+           this.datas.independentVariables[2].levels[0].value = this.datas.researchQuestion.hypothesis.tasks[0].name;
+           this.datas.independentVariables[2].levels[1].value = "Multi Tasks";
+
             //Dependent
            this.datas.dependentVariables.Add(new DependentVariable());
            this.datas.dependentVariables.Add(new DependentVariable());
            this.datas.dependentVariables.Add(new DependentVariable());
+           this.datas.dependentVariables[0].name = this.datas.researchQuestion.hypothesis.measures[0].name;
 
            BindingProcess();
         }
@@ -125,6 +147,49 @@ namespace DesignToolWPF
             this.textbox7.DataContext = datas.researchQuestion.hypothesis;
             this.textbox8.DataContext = datas.researchQuestion.hypothesis;
             this.textbox9.DataContext = datas.researchQuestion.hypothesis;
+
+            this.textbox10.DataContext = datas.independentVariables;
+            this.textbox11.DataContext = datas.independentVariables;
+            this.textbox12.DataContext = datas.independentVariables;
+            this.textbox13.DataContext = datas.independentVariables;
+            this.textbox14.DataContext = datas.independentVariables;
+            this.textbox15.DataContext = datas.independentVariables;
+            this.textbox16.DataContext = datas.independentVariables;
+            this.textbox17.DataContext = datas.independentVariables;
+            this.textbox18.DataContext = datas.independentVariables;
+            this.textbox19.DataContext = datas.independentVariables;
+            this.textbox20.DataContext = datas.independentVariables;
+            this.textbox21.DataContext = datas.independentVariables;
+            this.textbox22.DataContext = datas.independentVariables;
+            this.textbox23.DataContext = datas.independentVariables;
+            this.textbox24.DataContext = datas.independentVariables;
+
+            this.combobox1.DataContext = datas.independentVariables;
+            this.combobox2.DataContext = datas.independentVariables;
+            this.combobox3.DataContext = datas.independentVariables;
+
+            this.DV1.DataContext = datas.dependentVariables;
+            this.DV2.DataContext = datas.dependentVariables;
+            this.DV3.DataContext = datas.dependentVariables;
+
+            this.IDV1.DataContext = datas.independentVariables;
+            this.IDV1_L1.DataContext = datas.independentVariables;
+            this.IDV1_L2.DataContext = datas.independentVariables;
+            this.IDV1_L3.DataContext = datas.independentVariables;
+            this.IDV1_L4.DataContext = datas.independentVariables;
+            this.IDV2.DataContext = datas.independentVariables;
+            this.IDV2_L1.DataContext = datas.independentVariables;
+            this.IDV2_L2.DataContext = datas.independentVariables;
+            this.IDV2_L3.DataContext = datas.independentVariables;
+            this.IDV2_L4.DataContext = datas.independentVariables;
+            this.IDV3.DataContext = datas.independentVariables;
+            this.IDV3_L1.DataContext = datas.independentVariables;
+            this.IDV3_L2.DataContext = datas.independentVariables;
+            this.IDV3_L3.DataContext = datas.independentVariables;
+            this.IDV3_L4.DataContext = datas.independentVariables;
+            this.counterBalance1.DataContext = datas.independentVariables;
+            this.counterBalance2.DataContext = datas.independentVariables;
+            this.counetrBalance3.DataContext = datas.independentVariables;
         }
     }
     /*
