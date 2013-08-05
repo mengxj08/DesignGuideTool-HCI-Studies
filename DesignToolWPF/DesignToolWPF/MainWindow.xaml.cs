@@ -82,7 +82,7 @@ namespace DesignToolWPF
              * */
            this.datas = new DataStructure();
            this.datas.researchQuestion.experimentTitle = "Ipod and Earpod";
-           this.datas.researchQuestion.experimentConductor = "Yongfeng Huang";
+           this.datas.researchQuestion.experimentConductor = "Sam";
            this.datas.researchQuestion.experimentDescription = "This is an experiment to compare differnt technologies.";
 
            this.datas.researchQuestion.hypothesis.mainSolution = "earPod";
@@ -90,7 +90,26 @@ namespace DesignToolWPF
            this.datas.researchQuestion.hypothesis.compareSolutions.Add(new ResearchQuestion.Hypothesis.CompareSolution(0,"ipod"));
            this.datas.researchQuestion.hypothesis.tasks.Add(new ResearchQuestion.Hypothesis.Task(0,"Single Tasks"));
            this.datas.researchQuestion.hypothesis.measures.Add(new ResearchQuestion.Hypothesis.Measure(0,"Time cost"));
-          // this.datas.researchQuestion.hypothesis.compareSolutions[0].name = "ipod";
+
+           //Indpedent variables
+           this.datas.independentVariables.Add(new IndependentVariable());
+           this.datas.independentVariables.Add(new IndependentVariable());
+           this.datas.independentVariables.Add(new IndependentVariable());
+           this.datas.independentVariables[0].levels.Add(new IndependentVariable.Level());
+           this.datas.independentVariables[0].levels.Add(new IndependentVariable.Level());
+           this.datas.independentVariables[0].levels.Add(new IndependentVariable.Level());
+           this.datas.independentVariables[1].levels.Add(new IndependentVariable.Level());
+           this.datas.independentVariables[1].levels.Add(new IndependentVariable.Level());
+           this.datas.independentVariables[1].levels.Add(new IndependentVariable.Level());
+           this.datas.independentVariables[2].levels.Add(new IndependentVariable.Level());
+           this.datas.independentVariables[2].levels.Add(new IndependentVariable.Level());
+           this.datas.independentVariables[2].levels.Add(new IndependentVariable.Level());
+           
+            //Dependent
+           this.datas.dependentVariables.Add(new DependentVariable());
+           this.datas.dependentVariables.Add(new DependentVariable());
+           this.datas.dependentVariables.Add(new DependentVariable());
+
            BindingProcess();
         }
         public void BindingProcess()
