@@ -80,7 +80,7 @@ namespace DesignToolWPF
             {
                 IndependentVariable iv = new IndependentVariable();
                 iv.name = ivNode.SelectSingleNode("name").InnerText;
-                iv.type = (IndependentVariable.IVTYPE)Enum.Parse(typeof(IndependentVariable.IVTYPE), ivNode.SelectSingleNode("type").InnerText, true);
+                iv.subjectDesign = (IndependentVariable.SUBJECTDESIGN)Enum.Parse(typeof(IndependentVariable.SUBJECTDESIGN), ivNode.SelectSingleNode("subject_design").InnerText, true);
                 XmlNode levelsNode = ivNode.SelectSingleNode("levels");
                 XmlNodeList levelsNodeList = levelsNode.SelectNodes("level");
                 foreach (XmlNode node in levelsNodeList)
@@ -182,7 +182,7 @@ namespace DesignToolWPF
                 {
                     writer.WriteStartElement("independent_variable");
                     writer.WriteElementString("name", independentVariable.name);
-                    writer.WriteElementString("type", independentVariable.type.ToString());
+                    writer.WriteElementString("subject_design", independentVariable.subjectDesign.ToString());
                     writer.WriteStartElement("levels");
                     foreach (IndependentVariable.Level level in independentVariable.levels)
                     {
@@ -322,7 +322,7 @@ namespace DesignToolWPF
     public class IndependentVariable
     {
         public string name { get; set; }
-        public IVTYPE type;
+        public SUBJECTDESIGN subjectDesign;
         public COUNTERBALANCE counterBalance;
         public List<Level> levels { get; set; }
 
@@ -331,7 +331,7 @@ namespace DesignToolWPF
             levels = new List<Level>();
         }
 
-        public enum IVTYPE { Primary, Secondary };
+        public enum SUBJECTDESIGN { Between, Within };
 
         public enum COUNTERBALANCE { None, LatinSquare, Full };
         
