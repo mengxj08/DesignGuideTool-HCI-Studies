@@ -139,7 +139,6 @@ namespace DesignToolWPF
            this.datas.arrangement.block = 2;
            this.datas.arrangement.timePerTrial = 30;
            this.datas.arrangement.feePerParticipant = 10;
-           this.datas.arrangement.totalPayment = 5;
 
            BindingProcess();
         }

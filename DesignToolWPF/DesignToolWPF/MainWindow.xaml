@@ -194,16 +194,18 @@
                 <Label Content="Min No. of participants:" HorizontalAlignment="Left" Margin="300,10,0,0" VerticalAlignment="Top" Width="149"/>
                 <Label Content="Actual No. of participants:" HorizontalAlignment="Left" Margin="300,41,0,0" VerticalAlignment="Top" Width="149"/>
                 <Label Content="fee per participant:" HorizontalAlignment="Left" Margin="300,72,0,0" VerticalAlignment="Top" Width="149"/>
-                <TextBox x:Name="trial" HorizontalAlignment="Left" Height="23" Margin="178,13,0,0" TextWrapping="Wrap" Text="{Binding Path=trial, Mode=TwoWay}" VerticalAlignment="Top" Width="91"/>
-                <TextBox x:Name="block" HorizontalAlignment="Left" Height="23" Margin="178,44,0,0" TextWrapping="Wrap" Text="{Binding Path=block, Mode=TwoWay}" VerticalAlignment="Top" Width="91"/>
-                <TextBox x:Name="timePerTrial" HorizontalAlignment="Left" Height="23" Margin="178,75,0,0" TextWrapping="Wrap" Text="{Binding Path=timePerTrial,Mode=TwoWay}" VerticalAlignment="Top" Width="91"/>
-                <TextBox x:Name="actualNum" HorizontalAlignment="Left" Height="23" Margin="454,41,0,0" TextWrapping="Wrap" Text="{Binding Path=actualNum, Mode=TwoWay}" VerticalAlignment="Top" Width="91"/>
-                <TextBox x:Name="feePerParticipant" HorizontalAlignment="Left" Height="23" Margin="454,74,0,0" TextWrapping="Wrap" Text="{Binding Path=feePerParticipant, Mode=TwoWay}" VerticalAlignment="Top" Width="91"/>
+                <TextBox x:Name="trial" HorizontalAlignment="Left" Height="23" Margin="178,13,0,0" TextWrapping="Wrap" Text="{Binding Path=trial, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="91"/>
+                <TextBox x:Name="block" HorizontalAlignment="Left" Height="23" Margin="178,44,0,0" TextWrapping="Wrap" Text="{Binding Path=block, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="91"/>
+                <TextBox x:Name="timePerTrial" HorizontalAlignment="Left" Height="23" Margin="178,75,0,0" TextWrapping="Wrap" Text="{Binding Path=timePerTrial,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="91"/>
+                <TextBox x:Name="actualNum" HorizontalAlignment="Left" Height="23" Margin="454,41,0,0" TextWrapping="Wrap" Text="{Binding Path=actualNum, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="91"/>
+                <TextBox x:Name="feePerParticipant" HorizontalAlignment="Left" Height="23" Margin="454,74,0,0" TextWrapping="Wrap" Text="{Binding Path=feePerParticipant, Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="91"/>
                 <Label Content="Total time cost:" HorizontalAlignment="Left" Margin="10,103,0,0" VerticalAlignment="Top" Width="163"/>
                 <Label Content="Total payment:" HorizontalAlignment="Left" Margin="300,103,0,0" VerticalAlignment="Top" Width="149"/>
-                <TextBlock x:Name="totaltimecost" HorizontalAlignment="Left" Margin="178,108,0,0" TextWrapping="Wrap" Text="{Binding Path=totalTimeCost, Mode=OneWay}" VerticalAlignment="Top" Width="91" Height="21"/>
-                <TextBlock x:Name="totalpayment" HorizontalAlignment="Left" Margin="454,103,0,0" TextWrapping="Wrap" Text="{Binding Path=totalPayment, Mode=TwoWay}" VerticalAlignment="Top" Width="91" Height="21"/>
+                <TextBlock x:Name="totaltimecost" HorizontalAlignment="Left" Margin="178,108,0,0" TextWrapping="Wrap" Text="{Binding Path=totalTimeCost, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="91" Height="21"/>
+                <TextBlock x:Name="totalpayment" HorizontalAlignment="Left" Margin="454,103,0,0" TextWrapping="Wrap" Text="{Binding Path=totalPayment, Mode=OneWay,UpdateSourceTrigger=PropertyChanged}" VerticalAlignment="Top" Width="91" Height="21"/>
                 <TextBlock x:Name="minNum" HorizontalAlignment="Left" Margin="454,13,0,0" TextWrapping="Wrap" Text="{Binding Path=minNum, Mode=OneWay}" VerticalAlignment="Top" Width="91" Height="21" RenderTransformOrigin="0.476,-3.032"/>
+                <Label Content="Min" HorizontalAlignment="Left" Margin="272,103,0,0" VerticalAlignment="Top" Width="34"/>
+                <Label Content="$" HorizontalAlignment="Left" Margin="550,103,0,0" VerticalAlignment="Top" Width="21"/>
             </Grid>
         </Canvas>
         <Canvas x:Name="canvas5" HorizontalAlignment="Left" Height="417" VerticalAlignment="Top" Width="592" Margin="200,50,0,0" Visibility="Hidden">

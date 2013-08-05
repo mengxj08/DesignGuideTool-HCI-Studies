@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Xml;
-
+using System.ComponentModel;
 namespace DesignToolWPF
 {
     public class DataStructure
@@ -351,12 +351,26 @@ namespace DesignToolWPF
     {
     }
 
-    public class Arrangement
+    public class Arrangement : ViewModelBase
     {
         public int minNum { get; set; }
-        public int actualNum { get; set; }
+        private int _actualNum;
+        public int actualNum 
+        {
+            get
+            {
+                return this._actualNum;
+            }
+            set 
+            {
+                this._actualNum = value;
+                this.totalPayment = this.feePerParticipant * this.actualNum;
+                this.onPropertyChanged("totalPayment");
+                //Log.getLogInstance().writeLog("actualNum");
+            } 
+        }
 
-        public int _feePerParticipant;
+        private int _feePerParticipant;
         public int feePerParticipant 
         {
             get
@@ -366,23 +380,62 @@ namespace DesignToolWPF
             set
             {
                 this._feePerParticipant = value;
-                totalPayment = this.feePerParticipant * this.actualNum;
-               
+                this.totalPayment = this._feePerParticipant * this.actualNum;
+                this.onPropertyChanged("totalPayment");
+                //Log.getLogInstance().writeLog("Test");
             }
         }
-
-        public int trial { get; set; }
-        public int timePerTrial { get; set; }
-        public int block { get; set; }
-        public List<Participant> participants { get; set; }
+        private int _trial { get; set; }
+        public int trial 
+        {
+            get
+            {
+                return this._trial;
+            }
+            set 
+            {
+                this._trial = value;
+                this.totalTimeCost = this.trial * this.block * this.timePerTrial * this.actualNum / 60;
+                this.onPropertyChanged("totalTimeCost");
+            } 
+        }
+        private int _timePerTrial;
+        public int timePerTrial 
+        {
+            get 
+            {
+                return this._timePerTrial;
+            }
+            set
+            {
+                this._timePerTrial = value;
+                this.totalTimeCost = this.trial * this.block * this.timePerTrial * this.actualNum / 60;
+                this.onPropertyChanged("totalTimeCost");
+            }
+        }
+        public int _block { get; set; }
+        public int block 
+        {
+            get
+            {
+                return this._block;
+            }
+            set
+            {
+                this._block = value;
+                this.totalTimeCost = this.trial * this.block * this.timePerTrial * this.actualNum / 60;
+                this.onPropertyChanged("totalTimeCost");
+            }
+        }
+        
 
         public int totalTimeCost { get; set; }
         public int totalPayment { get; set; }
+        public List<Participant> participants { get; set; }
         public Arrangement()
         {
             participants = new List<Participant>();
         }
-
         public class Participant
         {
             public int id;
