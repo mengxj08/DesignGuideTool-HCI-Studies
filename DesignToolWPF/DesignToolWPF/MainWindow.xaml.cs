@@ -132,6 +132,15 @@ namespace DesignToolWPF
            this.datas.dependentVariables.Add(new DependentVariable());
            this.datas.dependentVariables[0].name = this.datas.researchQuestion.hypothesis.measures[0].name;
 
+           //arrangement
+           this.datas.arrangement.minNum = 4;
+           this.datas.arrangement.actualNum = 12;
+           this.datas.arrangement.trial = 3;
+           this.datas.arrangement.block = 2;
+           this.datas.arrangement.timePerTrial = 30;
+           this.datas.arrangement.feePerParticipant = 10;
+           this.datas.arrangement.totalPayment = 5;
+
            BindingProcess();
         }
         public void BindingProcess()
@@ -190,6 +199,15 @@ namespace DesignToolWPF
             this.counterBalance1.DataContext = datas.independentVariables;
             this.counterBalance2.DataContext = datas.independentVariables;
             this.counetrBalance3.DataContext = datas.independentVariables;
+
+            this.trial.DataContext = datas.arrangement;
+            this.block.DataContext = datas.arrangement;
+            this.timePerTrial.DataContext = datas.arrangement;
+            this.minNum.DataContext = datas.arrangement;
+            this.actualNum.DataContext = datas.arrangement;
+            this.feePerParticipant.DataContext = datas.arrangement;
+            this.totalpayment.DataContext = datas.arrangement;
+            this.totaltimecost.DataContext = datas.arrangement;
         }
     }
     /*

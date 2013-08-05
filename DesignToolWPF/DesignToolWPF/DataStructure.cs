@@ -355,12 +355,29 @@ namespace DesignToolWPF
     {
         public int minNum { get; set; }
         public int actualNum { get; set; }
-        public int feePerParticipant { get; set; }
+
+        public int _feePerParticipant;
+        public int feePerParticipant 
+        {
+            get
+            {
+                return _feePerParticipant;
+            }
+            set
+            {
+                this._feePerParticipant = value;
+                totalPayment = this.feePerParticipant * this.actualNum;
+               
+            }
+        }
+
         public int trial { get; set; }
         public int timePerTrial { get; set; }
         public int block { get; set; }
         public List<Participant> participants { get; set; }
 
+        public int totalTimeCost { get; set; }
+        public int totalPayment { get; set; }
         public Arrangement()
         {
             participants = new List<Participant>();
