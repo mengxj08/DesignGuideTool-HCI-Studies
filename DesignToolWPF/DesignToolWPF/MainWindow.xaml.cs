@@ -24,9 +24,12 @@ namespace DesignToolWPF
     public enum vTypes {Indepedent, Dependent };
     public enum SubjectDesign {Bewtween, Within};
     */
+    public enum MODE {NewItem, CopyItem};
     public partial class MainWindow : Window
     {
         private DataStructure datas;
+        private MODE modeType;
+        private Boolean FLAG = true;
         public MainWindow()
         {
             InitializeComponent();
@@ -49,7 +52,13 @@ namespace DesignToolWPF
         private void Button2_Click(object sender, RoutedEventArgs e)
         {
             setInvisible();
+            if (this.modeType == MODE.NewItem && this.FLAG)
+            {
+                this.FLAG = false;
+                ResearchQuestionGenerateVariables();
+            }
             this.canvas2.Visibility = System.Windows.Visibility.Visible;
+            Log.getLogInstance().writeLog(this.datas.independentVariables[0].levels[2].value);
         }
         private void Button3_Click(object sender, RoutedEventArgs e)
         {
@@ -80,6 +89,8 @@ namespace DesignToolWPF
                 Levels = "ipod and earpod"
             });
              * */
+           this.modeType = MODE.NewItem;
+
            this.datas = new DataStructure();
            this.datas.researchQuestion.experimentTitle = "Ipod and Earpod";
            this.datas.researchQuestion.experimentConductor = "Sam";
@@ -133,7 +144,7 @@ namespace DesignToolWPF
            this.datas.dependentVariables[0].name = this.datas.researchQuestion.hypothesis.measures[0].name;
 
            //arrangement
-           this.datas.arrangement.minNum = 4;
+           this.datas.arrangement.minNum = 8;
            this.datas.arrangement.actualNum = 12;
            this.datas.arrangement.trial = 3;
            this.datas.arrangement.block = 2;
@@ -144,37 +155,37 @@ namespace DesignToolWPF
         }
         public void BindingProcess()
         {
-            this.textbox0.DataContext = datas;
-            this.textbox1.DataContext = datas;
-            this.textbox2.DataContext = datas;
-            this.textbox3.DataContext = datas;
-            this.textbox4.DataContext = datas;
+            this.TestBox.DataContext = datas;
+            this.ResearchQuestion.DataContext = datas;
+            this.RQ_experimentTitle.DataContext = datas;
+            this.RQ_experimentConductor.DataContext = datas;
+            this.RQ_experimentDescription.DataContext = datas;
 
-            this.textbox5.DataContext = datas.researchQuestion.hypothesis;
-            this.textbox6.DataContext = datas.researchQuestion.hypothesis;
-            this.textbox7.DataContext = datas.researchQuestion.hypothesis;
-            this.textbox8.DataContext = datas.researchQuestion.hypothesis;
-            this.textbox9.DataContext = datas.researchQuestion.hypothesis;
+            this.mainSolution.DataContext = datas.researchQuestion.hypothesis;
+            this.compareSolutions.DataContext = datas.researchQuestion.hypothesis;
+            this.tasks.DataContext = datas.researchQuestion.hypothesis;
+            this.context.DataContext = datas.researchQuestion.hypothesis;
+            this.measures.DataContext = datas.researchQuestion.hypothesis;
 
-            this.textbox10.DataContext = datas.independentVariables;
-            this.textbox11.DataContext = datas.independentVariables;
-            this.textbox12.DataContext = datas.independentVariables;
-            this.textbox13.DataContext = datas.independentVariables;
-            this.textbox14.DataContext = datas.independentVariables;
-            this.textbox15.DataContext = datas.independentVariables;
-            this.textbox16.DataContext = datas.independentVariables;
-            this.textbox17.DataContext = datas.independentVariables;
-            this.textbox18.DataContext = datas.independentVariables;
-            this.textbox19.DataContext = datas.independentVariables;
-            this.textbox20.DataContext = datas.independentVariables;
-            this.textbox21.DataContext = datas.independentVariables;
-            this.textbox22.DataContext = datas.independentVariables;
-            this.textbox23.DataContext = datas.independentVariables;
-            this.textbox24.DataContext = datas.independentVariables;
+            this.IDV1_name.DataContext = datas.independentVariables;
+            this.IDV1_1.DataContext = datas.independentVariables;
+            this.IDV1_2.DataContext = datas.independentVariables;
+            this.IDV1_3.DataContext = datas.independentVariables;
+            this.IDV1_4.DataContext = datas.independentVariables;
+            this.IDV2_name.DataContext = datas.independentVariables;
+            this.IDV2_1.DataContext = datas.independentVariables;
+            this.IDV2_2.DataContext = datas.independentVariables;
+            this.IDV2_3.DataContext = datas.independentVariables;
+            this.IDV2_4.DataContext = datas.independentVariables;
+            this.IDV3_name.DataContext = datas.independentVariables;
+            this.IDV3_1.DataContext = datas.independentVariables;
+            this.IDV3_2.DataContext = datas.independentVariables;
+            this.IDV3_3.DataContext = datas.independentVariables;
+            this.IDV3_4.DataContext = datas.independentVariables;
 
-            this.combobox1.DataContext = datas.independentVariables;
-            this.combobox2.DataContext = datas.independentVariables;
-            this.combobox3.DataContext = datas.independentVariables;
+            this.IDV1_subdesign.DataContext = datas.independentVariables;
+            this.IDV2_subdesign.DataContext = datas.independentVariables;
+            this.IDV3_subdesign.DataContext = datas.independentVariables;
 
             this.DV1.DataContext = datas.dependentVariables;
             this.DV2.DataContext = datas.dependentVariables;
@@ -207,6 +218,31 @@ namespace DesignToolWPF
             this.feePerParticipant.DataContext = datas.arrangement;
             this.totalpayment.DataContext = datas.arrangement;
             this.totaltimecost.DataContext = datas.arrangement;
+        }
+
+        public void ResearchQuestionGenerateVariables()
+        { 
+            //ResearchQuestion Generate Independent Variables
+            this.datas.independentVariables[0].levels[0].value = this.datas.researchQuestion.hypothesis.mainSolution;
+            string [] words = this.datas.researchQuestion.hypothesis.compareSolutions[0].name.Split('/');
+            for (int i = 0; i < words.Length; i++)
+            {
+                this.datas.independentVariables[0].levels[i + 1].value = words[i];
+                Log.getLogInstance().writeLog(words.Length.ToString());
+                Log.getLogInstance().writeLog(this.datas.independentVariables[0].levels[2].value);
+            }
+            words = null;
+            words = this.datas.researchQuestion.hypothesis.tasks[0].name.Split('/');
+            for (int i = 0; i < words.Length; i++)
+            {
+                this.datas.independentVariables[2].levels[i].value = words[i];
+            }
+            words = null;
+            words = this.datas.researchQuestion.hypothesis.measures[0].name.Split('/');
+            for (int i = 0; i < words.Length; i++)
+            {
+                this.datas.dependentVariables[i].name = words[i];
+            }
         }
     }
     /*

@@ -289,7 +289,7 @@ namespace DesignToolWPF
                 public string name { get; set; }
             }
 
-            public class Task
+            public class Task : ViewModelBase
             {
                 public Task()
                 { 
@@ -300,10 +300,25 @@ namespace DesignToolWPF
                     this.name = name;
                 }
                 public int id { get; set; }
-                public string name { get; set; }
+                private string _name;
+                public string name 
+                {
+                    get
+                    {
+                        return this._name;
+                    }
+                    set
+                    {
+                        if (value != this.name)
+                        {
+                            this._name = value;
+                            this.onPropertyChanged("name");
+                        }
+                    }
+                }
             }
 
-            public class Measure
+            public class Measure : ViewModelBase
             {
                 public Measure()
                 { 
@@ -314,12 +329,27 @@ namespace DesignToolWPF
                     this.name = name;
                 }
                 public int id { get; set; }
-                public string name { get; set; }
+                private string _name;
+                public string name 
+                {
+                    get
+                    {
+                        return this._name;
+                    }
+                    set
+                    {
+                        if(value != this.name)
+                        {
+                            this._name = value;
+                            this.onPropertyChanged("name");
+                        }
+                    }
+                }
             }
         }
     }
 
-    public class IndependentVariable
+    public class IndependentVariable 
     {
         public string name { get; set; }
         public SUBJECTDESIGN subjectDesign{ get; set;}
@@ -331,16 +361,46 @@ namespace DesignToolWPF
             levels = new List<Level>();
         }
 
-        public class Level
+        public class Level : ViewModelBase
         {
             public int id{ get; set;}
-            public string value{get; set;}
+            private string _value;
+            public string value
+            {
+                get
+                {
+                    return this._value;
+                }
+                set
+                {
+                    if (value != this.value)
+                    {
+                        this._value = value;
+                        this.onPropertyChanged("value");
+                    }
+                }
+            }
         }
     }
 
-    public class DependentVariable
+    public class DependentVariable : ViewModelBase
     {
-        public string name { get; set; }
+        private string _name;
+        public string name 
+        {
+            get
+            {
+                return this._name;
+            }
+            set
+            {
+                if(value != this.name)
+                {
+                    this._name = value;
+                    this.onPropertyChanged("name");
+                }
+            }
+        }
     }
 
     public class ControlVariable
@@ -385,7 +445,7 @@ namespace DesignToolWPF
                 //Log.getLogInstance().writeLog("Test");
             }
         }
-        private int _trial { get; set; }
+        private int _trial;
         public int trial 
         {
             get
@@ -413,7 +473,7 @@ namespace DesignToolWPF
                 this.onPropertyChanged("totalTimeCost");
             }
         }
-        public int _block { get; set; }
+        private int _block;
         public int block 
         {
             get
