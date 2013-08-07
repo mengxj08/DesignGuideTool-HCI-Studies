@@ -232,6 +232,12 @@ namespace DesignToolWPF
                 Log.getLogInstance().writeLog(this.datas.independentVariables[0].levels[2].value);
             }
             words = null;
+            words = this.datas.researchQuestion.hypothesis.context.Split('/');
+            for (int i = 0; i < words.Length; i++)
+            {
+                this.datas.independentVariables[1].levels[i].value = words[i];
+            }
+                words = null;
             words = this.datas.researchQuestion.hypothesis.tasks[0].name.Split('/');
             for (int i = 0; i < words.Length; i++)
             {
